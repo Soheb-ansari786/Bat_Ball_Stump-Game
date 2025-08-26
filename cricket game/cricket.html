@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        text-align: center;
+    }  
+    h1{
+        border-radius: 10px;
+        
+        border: 2px solid green;
+        margin: 35px;
+    }
+    .bat{
+height: 55px;
+width: 60px;
+border-radius: 10px;
+border: 2px solid green;
+margin-right: 5px;
+margin: 5px;
+font-size:medium;
+    }
+    .ball{
+        height: 55px;
+        width: 60px;
+        border-radius: 10px;
+        border: 2px solid green;
+        margin-right: 5px;
+        font-size:medium;
+    }
+    .stump{
+        height: 55px;
+        width: 60px;
+        border-radius: 10px;
+        border: 2px solid green;
+        margin-right: 7px;
+        font-size:medium;
+    }
+    #cricket{
+        border: 2px solid green;
+        height: 200px;
+        width: 450px;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div id="cricket">
+    <h1>Bat Ball Stump Game</h1>
+    <button class="bat" onclick="
+ let computerChoice = generateComputerChoice ();
+
+let resultMsg;
+if (computerChoice === 'ball'){
+    score.win++;
+    resultMsg = `user won`;
+}
+ else if (computerChoice === 'bat'){
+    score.tie++;
+    resultMsg = `it's a tie`;
+}
+ else if (computerChoice === 'stump'){
+    resultMsg = `computer won`;
+    score.lost++;
+}  
+alert (`you have choosen bat. computer choice is ${computerChoice}
+
+${resultMsg}
+
+${score.displayScore()}`);
+    ">Bat</button>
+
+    <button class="ball" onclick="
+   
+ computerChoice = generateComputerChoice ();
+
+if (computerChoice === 'ball'){
+    resultMsg = `it's a tie`;
+    score.tie++;
+}
+ else if (computerChoice === 'bat'){
+    resultMsg = `computer won` ;
+    score.lost++;
+}
+ else if (computerChoice === 'stump'){
+    resultMsg = `user won`;
+    score.win++;
+}  
+alert (`you have choosen ball. computer choice is ${computerChoice} 
+
+${resultMsg}
+
+${score.displayScore()}`);
+    ">Ball</button>
+
+    <button class="stump" onclick="
+   
+computerChoice = generateComputerChoice ();
+
+if (computerChoice === 'ball'){
+    resultMsg = `computer won`;
+    score.lost++;
+}
+ else if (computerChoice === 'bat'){
+    resultMsg = `user won`;
+    score.win++;
+}
+ else if (computerChoice === 'stump'){
+    resultMsg =`it's a tie`;
+    score.tie++;
+}  
+alert (`you have choosen stump. computer choice is ${computerChoice} 
+
+${resultMsg}
+          
+ ${score.displayScore()}`);
+
+    ">Stump</button></div>
+ <script>
+let score = {
+win: 0,
+lost: 0,
+tie: 0,
+displayScore: function(){
+   return` won:${score.win}, Lost:${score.lost}, Tied:${score.tie}`;
+}
+};
+    function generateComputerChoice (){
+        let computerChoice;
+        let randomNumber = Math.random() * 3;
+        if (randomNumber > 0 && randomNumber <= 1)
+    {
+         return 'bat';
+    }
+    else if (randomNumber > 1 && randomNumber <= 2)
+    {
+        return 'ball';
+    }else
+    {
+    return 'stump';
+    }
+     }
+    
+
+</script>
+</body>
+</html>
